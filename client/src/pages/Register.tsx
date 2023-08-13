@@ -9,8 +9,8 @@ const Register = () => {
     email: "",
     password: "",
   });
+  
   const [err, setError] = useState(null);
-
   const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,10 +20,12 @@ const Register = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
     try {
-      await axios.post("/auth/register", inputs);
+      const res = await axios.post("/auth/register", inputs);
+      console.log(res)
       navigate("/login");
     } catch (err) {
-      // setError(err.response.data);
+      //@ts-ignore
+      setError(err.response.data);
     }
   };
 

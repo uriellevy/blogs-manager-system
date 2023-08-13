@@ -10,3 +10,13 @@ export interface LoginData {
     username: string;
     password: string;
 }
+
+export interface Post {
+    id: number
+    title: string
+    desc: string
+    img: string
+    date: Date
+    uid: number
+    cat: string
+}

@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext, AuthContextType } from "../context/authContext";
+import { DICT } from "../consts/consts";
 
 const Login = () => {
+  const {LOGIN, REGISTER, NO_ACCOUNT_MESSAGE} = DICT;
   const [inputs, setInputs] = useState({
     username: "",
     password: "",
@@ -34,7 +36,7 @@ const Login = () => {
   };
   return (
     <div className="auth">
-      <h1>Login</h1>
+      <h1>{LOGIN}</h1>
       <form>
         <input
           required
@@ -50,10 +52,10 @@ const Login = () => {
           name="password"
           onChange={handleChange}
         />
-        <button onClick={handleSubmit}>Login</button>
+        <button onClick={handleSubmit}>{LOGIN}</button>
         {err && <p>{err}</p>}
         <span>
-          Don't you have an account? <Link to="/register">Register</Link>
+          {NO_ACCOUNT_MESSAGE} <Link to="/register">{REGISTER}</Link>
         </span>
       </form>
     </div>

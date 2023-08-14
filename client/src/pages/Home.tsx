@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import axios from "axios";
 import { Post } from '../interfaces/interfaces';
+import { DICT } from '../consts/consts';
 
 
 
 const Home = () => {
  const [posts, setPosts] = useState<Post[]>([])
  const cat = useLocation().search;
+ const {READ_MORE} = DICT;
 
  useEffect(() => {
   const fetchData = async () => {
@@ -33,8 +35,8 @@ const Home = () => {
               <Link className="link" to={`/post/${post.id}`}>
                 <h1>{post.title}</h1>
               </Link>
-              <p>{post.desc}</p>
-              <button>Read More</button>
+              {post.desc}
+              <button>{READ_MORE}</button>
             </div>
           </div>
         ))}

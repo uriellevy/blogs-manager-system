@@ -2,8 +2,10 @@ import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { DICT } from "../consts/consts";
 
 const Register = () => {
+  const {REGISTER, LOGIN, HAVE_ACCOUNT_MESSAGE} = DICT;
   const [inputs, setInputs] = useState({
     username: "",
     email: "",
@@ -31,7 +33,7 @@ const Register = () => {
 
   return (
     <div className="auth">
-      <h1>Register</h1>
+      <h1>{REGISTER}</h1>
       <form>
         <input
           required
@@ -54,10 +56,10 @@ const Register = () => {
           name="password"
           onChange={handleChange}
         />
-        <button onClick={handleSubmit}>Register</button>
+        <button onClick={handleSubmit}>{REGISTER}</button>
         {err && <p>{err}</p>}
         <span>
-          Do you have an account? <Link to="/login">Login</Link>
+          {HAVE_ACCOUNT_MESSAGE} <Link to="/login">{LOGIN}</Link>
         </span>
       </form>
     </div>

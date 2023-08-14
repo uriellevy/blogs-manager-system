@@ -6,6 +6,7 @@ import Menu from '../components/Menu';
 import moment from 'moment';
 import Edit from "../img/edit.png";
 import Delete from "../img/delete.png";
+import test from "../../public/logo192.png"
 import { Post } from '../interfaces/interfaces';
 
 const Single = () => {
@@ -26,23 +27,23 @@ const Single = () => {
     }
     fetchData();
   }, []);
-  
+
   const handleDelete = async () => {
     try {
-       await axios.delete(`/posts/${postId}`);
+      await axios.delete(`/posts/${postId}`);
       navigate("/");
     } catch (error) {
       console.log(error)
     }
   }
+  console.log(post)
 
   return (
     <>
       {post &&
         <div className="single">
-
           <div className="content">
-            <img src={`../upload/${post?.img}`} alt="" />
+            <img src="../upload/1692008900682delete(1).png" alt="" />
             <div className="user">
               {post.userImg && <img
                 src={post.userImg}

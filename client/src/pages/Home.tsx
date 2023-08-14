@@ -1,22 +1,25 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import axios from "axios";
 import { Post } from '../interfaces/interfaces';
 
+
+
 const Home = () => {
  const [posts, setPosts] = useState<Post[]>([])
+ const cat = useLocation().search;
 
  useEffect(() => {
   const fetchData = async () => {
     try {
-      const res = await axios.get("/posts");
+      const res = await axios.get(`/posts${cat}`);
       setPosts(res.data);
     } catch (error) {
       console.log(error)
     }
   }
   fetchData();
- },[posts]);
+ },[cat]);
 
   return (
     <div className="home">

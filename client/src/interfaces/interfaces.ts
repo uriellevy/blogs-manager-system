@@ -12,11 +12,12 @@ export interface LoginData {
 }
 
 export interface Post {
-    id: number
-    title: string
-    desc: string
-    img: string
-    date: Date
-    uid: number
     cat: string
+    date: Date
+    desc: string
+    id: number
+    img: string
+    title: string
+    userImg?: string
+    username: string
 }

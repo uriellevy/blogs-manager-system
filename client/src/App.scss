@@ -93,6 +93,16 @@ $lightGreen: #b9e7e7;
           span {
             cursor: pointer;
           }
+          .nav-user {
+            border: 2px solid $lightGreen;
+            padding: 3px 5px;
+            border-radius: 3px;
+            font-weight: 600;
+          }
+
+          .user-logout {
+            font-weight: 600;
+          }
 
           .write {
             background-color: $lightGreen;
